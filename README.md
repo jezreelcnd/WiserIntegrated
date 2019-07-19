@@ -1,6 +1,6 @@
 ## Introduction
 
-This is a demo repository to teach how to set up social authentication (and request extra user data) in Django using the social-auth-app-django library with minimal configuration. 
+Set up social authentication (and request extra user data) in Django using the social-auth-app-django library with minimal configuration. 
 
 ## Requirements
 * Python3
