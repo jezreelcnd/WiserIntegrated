@@ -1,11 +1,25 @@
 <!-- templates/login.html -->
 
 {% extends 'base.html' %}
-{% block title %} Sign in {% endblock %}
+{% block title %} Inicio {% endblock %}
 {% block content %}
+
 <div class="row">
+
+    
     <div class="col-md-8 mx-auto social-container my-2 order-md-1">
-        <button class="btn btn-danger  mb-2">
+        <a class="waves-effect waves-light  btn-large  social google" href="{% url 'social:begin' 'google-oauth2' %}">
+            <i class="fa fa-google"></i> Sign in with Google</a>
+        </br>
+        <a class="waves-effect waves-light btn-large social linkedin" href="{% url 'social:begin' 'linkedin-oauth2' %}">
+            <i class="fa fa-linkedin"></i> Sign in with linkedin</a>
+        </br>
+
+        <a class="waves-effect waves-light  btn-large  social facebook"
+            href="{% url 'social:begin' 'facebook' %}">
+            <i class="fa fa-facebook"></i> Sign in with facebook</a>
+        <!--
+                                    <button class="btn btn-danger  mb-2">
             <a href="{% url 'social:begin' 'google-oauth2' %}">Login with Google</a><br>
         </button>
         <button class="btn btn-primary mb-2">
@@ -13,7 +27,7 @@
         </button>
         <button class="btn btn-info mb-2">
             <a href="{% url 'social:begin' 'linkedin-oauth2' %}">Login with LinkedIn</a>
-        </button>
+        </button> -->
     </div>
 </div>
 </div>

@@ -1,55 +1,74 @@
 <!-- home.html -->
 
-{% extends 'base.html' %}
-{% block title %} Home {% endblock %}
+{% extends 'baseInternal.html' %}
+{% block title %} Registro {% endblock %}
 {% block content %}
 <div class="row">
-    <div class="col-sm-12 mb-3">
-        <h4 class="text-center">Welcome {{ user.username }}</h4>
-    </div>
-    <!-- Add from here -->
+        <div>
+              
+                
+                    <div class="card blue-grey grey lighten-4">
+                      <div class="card-content black-text">
+                        <span class="card-title"><h4 class="text-center">Bienvenido: {{ user.username }}</h4></span>
+                        
+                      </div>
+                      <div class="card-action">
+                              <!-- Add from here -->
     {% for ass in backends.associated %}
     {% if ass.provider == 'google-oauth2' %}
-    <div class="col-md-6 text-center">
+
         <img src="{{ass.extra_data.picture}}" alt="" width="150" height="150" style="border-radius: 50%">
-    </div>
-    <div class="col-md-6 social-container my-2">
+
         <p> Signed in via: {{ ass.provider }} </p>
         <p> Name: {{ ass.extra_data.name }} </p>
         <p> Email: {{ ass.extra_data.email }} </p>
-    </div>
+
     {% endif %}
     {% if ass.provider == 'facebook' %}
-    <div class="col-md-6 text-center">
+  
         <img src="{{ass.extra_data.picture.data.url}}" alt="" width="150" height="150" style="border-radius: 50%">
-    </div>
-    <div class="col-md-6 social-container my-2">
+
         <p> Signed in via: {{ ass.provider }} </p>
         <p> Name: {{ ass.extra_data.name }} </p>
         <p> Email: {{ ass.extra_data.email }} </p>
         <p> Provider url: <a href="{{ass.extra_data.profile_url}}">link</a></p>
-    </div>
+ 
     {% endif %}
     <!-- Add from here -->
     {% if ass.provider == 'linkedin-oauth2' %}
-    <div class="col-md-6 text-center">
+ 
         <img src="{{ass.extra_data.picture_url}}" alt="" width="150" height="150" style="border-radius: 50%">
-    </div>
-    <div class="col-md-6 social-container my-2">
+ 
+ 
         <p> Signed in via: Linkedin </p>
-        <p> Name: {{ ass.extra_data.first_name}} </p>
-        <p> LastName: {{ ass.extra_data.last_name}} </p>
+        <p> Name: {{ ass.extra_data.first_name}}  {{ ass.extra_data.last_name}}  </p>
         <p> Email: {{ ass.extra_data.email_address}} </p>
         <p> Image: {{ ass.extra_data.picture_url.displayImage}} </p>
-    </div>
+   
     {% endif %}
     <!-- End here -->
     {% endfor %}
+    <p> 
+    <button class="btn">
+            <a href="{% url 'logout' %}">Continua tu registro en Wiser ></a>
+        </button>
+    </p>
+    <!--
     <div class="col-sm-12 mt-2 text-center">
         <button class="btn btn-danger">
             <a href="{% url 'logout' %}">Logout</a>
         </button>
     </div>
+    -->
     <!-- End here -->
+                        
+                      </div>
+                    </div>
+                  </div>
+               
+            </div>
+
+
 </div>
+
 {% endblock %}
